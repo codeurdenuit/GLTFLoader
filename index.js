@@ -1,5 +1,7 @@
+import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 const loaderGlb = new GLTFLoader()
+const loaderTexture = new THREE.TextureLoader();
 
 export default {
   loadGeometry: function loadGeometry(path) {
@@ -25,6 +27,18 @@ export default {
       loaderGlb.load(path,
         function(gltf) {
           resolve(gltf.scene)
+        },
+        undefined, function(e) {
+          console.error(e)
+          reject(e)
+        })
+    })
+  },
+  loadTexture: function loadTexture(path) {
+    return new Promise((resolve, reject) => {
+      loaderTexture.load(path,
+        function(texture) {
+          resolve(texture)
         },
         undefined, function(e) {
           console.error(e)

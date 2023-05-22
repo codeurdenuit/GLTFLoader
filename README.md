@@ -14,5 +14,6 @@ $ import GLTFLoader from 'gltfloader'
 
 const geometry = await GLTFLoader.loadGeometry('mesh.glb')
 const scene = await GLTFLoader.loadScene('mesh.glb')
+const textre = await GLTFLoader.loadTexture('texture.png')
 
 ```
